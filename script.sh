@@ -87,10 +87,7 @@ function install_dbeaver() {
 
 # Installing AWS CLI
 function install_aws_cli() {
-	download = 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"';
-	unzip = 'unzip awscliv2.zip';
-	install_cmd = 'sudo ./aws/install';
-	commands=(download unzip install_cmd);
+	commands=('curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"' 'unzip awscliv2.zip' 'sudo ./aws/install');
 	install_application 'aws' "${commands[@]}";
 }
 
@@ -108,9 +105,7 @@ function install_wine() {
 
 # Installing Docker Compose
 function install_docker_compose() {
-	download = 'sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose';
-	apply_permissions = 'sudo chmod +x /usr/local/bin/docker-compose';
-	commands=(download apply_permissions);
+	commands=('sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose' 'sudo chmod +x /usr/local/bin/docker-compose');
 	install_application 'docker-compose' "${commands[@]}";
 }
 
