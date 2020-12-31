@@ -114,6 +114,36 @@ function install_docker_compose() {
 	install_application 'docker-compose' "${commands[@]}";
 }
 
+# Installing Git
+function install_git() {
+	commands=('sudo snap install git-ubuntu --classic');
+	install_application 'git-ubuntu' "${commands[@]}";
+}
+
+# Installing Groovy
+function install_groovy() {
+	commands=('sudo snap install groovy --classic');
+	install_application 'groovy' "${commands[@]}";
+}
+
+# Installing Golang
+function install_golang() {
+	commands=('sudo snap install go --classic');
+	install_application 'go' "${commands[@]}";
+}
+
+# Installing Docker
+function install_docker() {
+	commands=('sudo snap install docker');
+	install_application 'docker' "${commands[@]}";
+}
+
+# Installing JDK
+function install_jdk() {
+	commands=('sudo add-apt-repository ppa:openjdk-r/ppa' 'sudo apt-get update' 'sudo apt-get install openjdk-8-jdk');
+	install_application 'openjdk-8-jdk' "${commands[@]}";
+}
+
 function init() {
 	sudo apt update;
 
@@ -125,8 +155,9 @@ function init_primitive_installations() {
 	install_curl;
 	install_snapd;
 	install_wine;
+	install_jdk;
 	install_aws_cli;
-  install_docker_compose;
+	install_docker_compose;
 }
 
 function init_snap_installations() {
@@ -137,6 +168,10 @@ function init_snap_installations() {
 	install_insomnia;
 	install_dbeaver;
 	install_sublime_text;
+	install_groovy;
+	install_golang;
+	install_docker;
+	install_git;
 }
 
 init;
